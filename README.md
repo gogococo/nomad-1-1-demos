@@ -11,7 +11,7 @@ I'll be running through the On Demand Batch demos found in `nomad-autoscaler-dem
 We'll follow this up by discussing the 1.1 autoscaling strategy updates. 
 
 ### CSI with Ceph
-* This demo will be jumping off from [Tim's internal demo that can be found here.](https://github.com/hashicorp/nomad/tree/main/demo/csi/ceph-csi-plugin)
+* This demo will be jumping off from [an internal demo which can be found here.](https://github.com/hashicorp/nomad/tree/main/demo/csi/ceph-csi-plugin)
 
 ### Multifeature Demo
 This demo will leverages [nicholasjackson/fake-service](https://github.com/nicholasjackson/fake-service) & highlights multiple Nomad 1.1 features.
