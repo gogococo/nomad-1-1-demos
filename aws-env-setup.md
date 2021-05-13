@@ -1,6 +1,5 @@
 # Standing up the Environment
 * Note: I've bumped up the VMs. If using on a budget, make sure to change the size down from larges <3
-* [Code used to stand up an AWS based Nomad environment](https://www.google.com)
 
 To start, clone the repository.
 
