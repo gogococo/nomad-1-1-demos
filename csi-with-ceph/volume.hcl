@@ -30,7 +30,7 @@ capability {
 
 secrets {
   userID  = "admin"
-  userKey = "AQDsIoxgHqpeBBAAtmd9Ndu4m1xspTbvwZdIzA=="
+  userKey = "AQCVL6RgEXuPLRAA14cHYv4Vudc025K53rsbfw=="
 }
 
 parameters {
