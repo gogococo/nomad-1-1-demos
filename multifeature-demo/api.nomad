@@ -48,7 +48,7 @@ job "api" {
       env {
         TIMING_50_PERCENTILE = "1s"
         TIMING_VARIANCE = 25
-        LOAD_MEMORY_PER_REQUEST = 10485760 # 10MB per request x 10 users in load test = 100MB +/- 100MB 
+        LOAD_MEMORY_PER_REQUEST = 10485760 #  10485760 20971520 10MB per request x 10 users in load test = 100MB +/- 100MB 
         LOAD_MEMORY_VARIANCE = 100 # 100% variance
         READY_CHECK_RESPONSE_DELAY = "60s"
         READY_CHECK_RESPONSE_FAILURE_CODE = 500
@@ -63,10 +63,10 @@ job "api" {
       }
       resources {
         
-        # might need to get rid of this, value is mostly there for the CPU chart 
-        cpu    = 6000
-        memory = 120 # 120MB
-        # memory_max = 200 # 200MB, without this when each request is set to 10MB will OOM
+        # mostly here for the CPU chart 
+        cpu    = 2000
+        memory = 80 # 120MB
+        # memory_max = 150 # 200MB, without this when each request is set to 10MB will OOM
       }
     }
   }
@@ -91,11 +91,11 @@ job "api" {
           import http from 'k6/http';
           import { sleep } from 'k6';
           export let options = {
-            vus: 10,
+            vus: 15,
             duration: "9000s"
           };
           export default function () {
-            http.get('http://host.docker.internal:9090');
+            http.get('http://localhost:9090');
           }
         EOH
         destination = "local/script.js"

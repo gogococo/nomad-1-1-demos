@@ -13,9 +13,9 @@ We'll follow this up by discussing the 1.1 autoscaling strategy updates.
 ### CSI with Ceph
 * This demo will be jumping off from [an internal demo which can be found here.](https://github.com/hashicorp/nomad/tree/main/demo/csi/ceph-csi-plugin)
 
-### Multifeature Demo
+### Memory Oversubscription
 This demo will leverages [nicholasjackson/fake-service](https://github.com/nicholasjackson/fake-service) & highlights multiple Nomad 1.1 features.
-* [Memory Oversubscription](https://github.com/hashicorp/team-nomad/blob/enablement-memory-max/enablement/memory-oversubscription/README.md)
+* [Memory Oversubscription](https://github.com/hashicorp/team-nomad/tree/main/enablement/memory-oversubscription)
 * Readiness Checks 
 * UI Improvements (fuzzy search & improved resource monitoring)
 
