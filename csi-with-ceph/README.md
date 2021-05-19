@@ -49,6 +49,12 @@ ID        Node ID   Task Group  Version  Desired  Status   Created    Modified
 d6b23e8d  5b02dc70  cephrbd     0        run      running  6m31s ago  6m5s ago
 ```
 
+Obtain the Keyring value and update your Volume HCL file
+
+```sh
+nomad alloc exec CONTAINER_ID cat /etc/ceph/ceph.client.admin.keyring | awk '/key/{print $3}'
+```
+
 Instantiate the Ceph Volume
 
 ```sh
