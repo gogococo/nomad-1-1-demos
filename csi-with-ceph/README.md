@@ -1,23 +1,32 @@
 # CSI with Ceph
-Note: Demo & README are WIP. 
-* This demo will be jumping off from [an internal demo which can be found here.](https://github.com/hashicorp/nomad/tree/main/demo/csi/ceph-csi-plugin)
+
+Note: Demo & README are WIP.
+
+- This demo will be jumping off from [an internal demo which can be found here.](https://github.com/hashicorp/nomad/tree/main/demo/csi/ceph-csi-plugin)
 
 ## Getting Started
+
 ```
 vagrant up
 vagrant ssh
 cd csi-demo
 ```
 
+Instantiate Ceph
+
+```sh
+./run-ceph.sh
+```
+
 Run the Plugins.
 
 ```
-nomad job run -var-file=nomad.vars ./plugin-cephrbd-controller.nomad
+nomad job run -var-file=nomad.vars ./plugin-cephrbd-controller-vagrant.nomad
 
 nomad job run -var-file=nomad.vars ./plugin-cephrbd-node.nomad
 ```
 
-Watch for the plugins to come up. 
+Watch for the plugins to come up.
 
 ```
 watch nomad plugin status cephrbd
@@ -38,4 +47,16 @@ Allocations
 ID        Node ID   Task Group  Version  Desired  Status   Created    Modified
 31dcd70d  5b02dc70  cephrbd     0        run      running  6m38s ago  6m ago
 d6b23e8d  5b02dc70  cephrbd     0        run      running  6m31s ago  6m5s ago
+```
+
+Obtain the Keyring value and update your Volume HCL file
+
+```sh
+nomad alloc exec CONTAINER_ID cat /etc/ceph/ceph.client.admin.keyring | awk '/key/{print $3}'
+```
+
+Instantiate the Ceph Volume
+
+```sh
+nomad volume create volume.hcl
 ```

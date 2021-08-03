@@ -10,7 +10,7 @@ variable "cluster_id" {
 
 variable "hostname" {
   type        = string
-  default     = "linux" # hostname of the Nomad repo's Vagrant box
+  default     = "ubuntu-focal" # hostname of the Nomad repo's Vagrant box
   description = "hostname of the demo host"
 }
 
@@ -105,14 +105,14 @@ osd objectstore = bluestore
 osd data = /var/lib/ceph/osd/ceph-0
 
 
-[client.rgw.linux]
+[client.rgw.${var.hostname}]
 rgw dns name = ${var.hostname}
 rgw enable usage log = true
 rgw usage log tick interval = 1
 rgw usage log flush threshold = 1
 rgw usage max shards = 32
 rgw usage max user shards = 1
-log file = /var/log/ceph/client.rgw.linux.log
+log file = /var/log/ceph/client.rgw.${var.hostname}.log
 rgw frontends = beast  endpoint=0.0.0.0:8080
 
 EOT
